@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import MockServiceWorkerProvider from "@/components/MockServiceWorkerProvider";
 import { WagmiProvider } from "wagmi";
-import { config } from "@/lib/config";
+import { config } from "@/config/config";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
