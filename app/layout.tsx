@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MockServiceWorkerProvider from "@/components/MockServiceWorkerProvider";
+import { WagmiProvider } from "wagmi";
+import { config } from "@/lib/config";
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MockServiceWorkerProvider />
-        {children}
+        <WagmiProvider config={config}>
+          <ReactQueryProvider>
+            {children}
+          </ReactQueryProvider>
+        </WagmiProvider>
       </body>
     </html>
   );
