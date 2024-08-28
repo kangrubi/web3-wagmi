@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import React from 'react';
 
 type Props = {
@@ -7,6 +8,7 @@ type Props = {
 const layout = ({ children }: Props) => {
   return (
     <div>
+      <Header />
       {children}
     </div>
   );
