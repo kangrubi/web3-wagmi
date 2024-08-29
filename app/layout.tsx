@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import MockServiceWorkerProvider from "@/components/MockServiceWorkerProvider";
-import { WagmiProvider } from "wagmi";
-import { config } from "@/config/config";
-import ReactQueryProvider from "@/components/ReactQueryProvider";
+import Providers from "@/providers/Providers";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MockServiceWorkerProvider />
-        <WagmiProvider config={config}>
-          <ReactQueryProvider>
-            {children}
-          </ReactQueryProvider>
-        </WagmiProvider>
+        <Providers>
+          {children}
+        </Providers>
       </body>
-    </html>
+    </html >
   );
 }
